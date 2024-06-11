@@ -1,0 +1,34 @@
+.mat-elevation-z8{
+  background-color: #c4c4c4;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid rgb(255, 255, 255);
+  border-top: 1px solid rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.mat-mdc-column .mat-mdc-cell {
+  border-bottom: 1px solid rgb(255, 255, 255);
+  border-top: 1px solid rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+table{
+  width: 100%;
+}
+
+.header-table{
+  border-bottom: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  }
+
+  .mat-yellow {
+    background-color: rgb(224, 202, 0);
+    color: rgb(224, 202, 0);
+}
+
+.btn-custom{
+  width: 100px!important;
+  box-shadow: none!important;
+}

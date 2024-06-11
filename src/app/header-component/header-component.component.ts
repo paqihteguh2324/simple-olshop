@@ -1,0 +1,19 @@
+import { Component } from '@angular/core';
+import {ThemePalette} from '@angular/material/core';
+import {MatTabsModule} from '@angular/material/tabs';
+import { CustomerPageComponent } from '../customer-page/customer-page.component';
+
+@Component({
+  selector: 'app-header-component',
+  standalone: true,
+  imports: [MatTabsModule, CustomerPageComponent],
+  templateUrl: './header-component.component.html',
+  styleUrl: './header-component.component.css'
+})
+export class HeaderComponentComponent {
+  links = ['Customer', 'Item', 'Order'];
+  activeLink = this.links[0];
+  background: ThemePalette = undefined;
+
+
+}
