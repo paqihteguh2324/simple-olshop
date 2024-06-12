@@ -1,28 +1,18 @@
 .tabPanelButton{
   background-color: #131314;
-  padding: 6px;
   color: white;
   border: none;
   font-size: 18px;
 }
 
-.item-tab{
-  background-color: #131314;
-  padding: 6px;
-  color: white;
-  border: 1px solid #131314;
-  font-size: 18px;
-}
+
 
 .tabPanelButton {
-  color: #000; /* Example blue color for labels */
-  background-color: #c4c4c4; /* Example light blue background */
-  padding: 10px;
-  padding-bottom: 20px;
+  color: #000;
+  background-color: #c4c4c4;
 }
 
 .body-container{
   height: 100%;
   display: block;
-  margin-top: 10px;
 }

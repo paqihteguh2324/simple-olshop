@@ -1,5 +1,6 @@
-.mat-elevation-z8{
-  background-color: #c4c4c4;
+/* .mat-elevation-z8{
+  background-color: #faf3f3;
+  border-radius: 8px;
 }
 
 .mat-mdc-row .mat-mdc-cell {
@@ -14,21 +15,61 @@
   cursor: pointer;
 }
 
-table{
-  width: 100%;
+.mat-table{
+  border-radius: 8px;
+  overflow:hidden !important;
 }
 
-.header-table{
-  border-bottom: 2px solid #ffffff;
-  border-top: 2px solid #ffffff;
-  }
+table{
+  width: 100%;
+  border-radius: 8px;
+}
+
+
 
   .mat-yellow {
     background-color: rgb(224, 202, 0);
     color: rgb(224, 202, 0);
 }
 
-.btn-custom{
+ */
+
+ .btn-custom{
   width: 100px!important;
   box-shadow: none!important;
+  background-color: #c4c4cc !important;
+}
+
+.header-table{
+  border-bottom: 2px solid #000000;
+  border-top: 2px solid #000000;
+  }
+
+  th{
+    background-color: #65b5ff !important;
+    color: #000000;
+    font-weight: 500;
+  }
+
+.mat-table
+{
+  background-color:transparent!important;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5em;
+}
+table tr:last-child td /*To remove the last border*/
+{
+  border-bottom:0 solid
+}
+.container-customer{
+  background-color: #fff;
+  padding: 10px;
+}
+
+.container-btn{
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
