@@ -1,0 +1,35 @@
+<h1 matDialogTitle>Update Customer</h1>
+
+<mat-dialog-content style="padding: 20px;">
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 8px;" floatLabel="always" >
+    <mat-label>Customer Name</mat-label>
+    <input matInput placeholder="Input Customer Name" required [formControl]="name" (blur)="getErrorMessage()">
+    <mat-error>{{errorMessageName}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 8px;" floatLabel="always">
+    <mat-label>Customer Phone</mat-label>
+    <input matInput placeholder="Input Customer Phone" required [formControl]="phone" (blur)="getErrorMessage()">
+    <mat-error>{{errorMessagePhone}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 8px;" floatLabel="always">
+    <mat-label>Customer Address</mat-label>
+    <input matInput placeholder="Input Customer Address" required [formControl]="address" (blur)="getErrorMessage()">
+    <mat-error>{{errorMessageAddress}}</mat-error>
+  </mat-form-field>
+
+  <div style="width: 100%; margin-bottom: 8px;">
+    <img *ngIf="fileLink" src={{fileLink}} width="130" height="130" style="border-radius: 8px;"/>
+    <label for="fileInput" style="display: block; font-size: 12px; margin-bottom: 4px; color: rgba(0,0,0,.54);">
+      Customer Pic
+    </label>
+    <input type="file" id="fileInput" (change)="onFileSelected($event)" required>
+    <mat-error>{{errorMessagePic}}</mat-error>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button style="border-radius: 8px;" matDialogClose>Close</button>
+    <button mat-raised-button style="border-radius: 8px;" (click)="createCustomer()" disabled="{{address.invalid || name.invalid || phone.invalid }}">Save</button>
+
+</mat-dialog-actions>

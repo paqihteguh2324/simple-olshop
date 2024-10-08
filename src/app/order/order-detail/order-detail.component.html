@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 matDialogTitle style="font-weight: bold;">Detail Order {{order.orderCode}}</h1>
+  <mat-dialog-content>
+    <div style="display: flex; flex-direction: row;">
+      <div style="display: flex; flex-direction: column; font-weight:500;">
+        <p>Customer</p>
+        <p>item Name</p>
+        <p>Quantity</p>
+        <p>Price</p>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <p> &nbsp;: {{order.customers.customerName}}</p>
+        <p> &nbsp;: {{order.item.itemName}}</p>
+        <p> &nbsp;: {{order.quantity}}</p>
+        <p> &nbsp;: {{order.totalPrice}}</p>
+      </div>
+    </div>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+      <button mat-button matDialogClose>Tutup</button>
+  </mat-dialog-actions>
+  </div>

@@ -1,0 +1,18 @@
+<h1 matDialogTitle>Detail Customer</h1>
+
+<mat-dialog-content>
+    <div style="display: flex; flex-direction: row; font-weight:500;gap: 10px;">
+      <img src={{customer.pic.fileLink}} width="130" height="130" style="border-radius: 8px;"/>
+        <div style="display: flex; flex-direction: column;">
+        <p>Customer Code : {{customer.customerCode}}</p>
+        <p>Customer Name : {{customer.customerName}}</p>
+        <p>Customer Phone : {{customer.customerPhone}}</p>
+        <p>Customer Address : {{customer.customerAddress}}</p>
+        <p>Last Order Date : {{customer.lastOrderDate}}</p>
+        </div>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button matDialogClose>Tutup</button>
+</mat-dialog-actions>

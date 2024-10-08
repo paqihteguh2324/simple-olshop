@@ -1,0 +1,119 @@
+<div style="background-color: #fff; padding: 2px; margin: 2px;">
+<div style="display: flex; width: 100%; margin-bottom: 8px; margin-top: 8px">
+  <div style="width: 750%; padding-left: 50px; font-size: 12px">
+    <mat-form-field
+      style="width: 95%; margin-bottom: 8px; border-radius: 8px"
+      appearance="outline"
+      [floatLabel]="'always'"
+    >
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        placeholder="Input Item Name "
+        [formControl]="searchValue"
+        (change)="searchOrder()"
+      />
+      <mat-icon matPrefix>search</mat-icon>
+    </mat-form-field>
+  </div>
+  <div style="width: 25%; padding-right: 50px; display: flex; flex-direction: row; justify-content: space-between; gap: 10px;">
+    <button
+      mat-raised-button
+      style="background-color: #c4c4c4; border-radius: 8px; height: 50px"
+      (click)="openDialogCreate()"
+    >
+      Add Order
+    </button>
+    <button
+      mat-raised-button
+      style="background-color: #c4c4c4; border-radius: 8px; height: 50px"
+      (click)="exportOrders()"
+    >
+      Export
+    </button>
+  </div>
+</div>
+
+<table mat-table [dataSource]="data" class="mat-elevation-z8">
+  <ng-container matColumnDef="orderDate">
+    <th mat-header-cell class="header-table" *matHeaderCellDef>Order Date</th>
+    <td mat-cell *matCellDef="let element">{{ formatDate(element.orderDate)}}</td>
+  </ng-container>
+  <ng-container matColumnDef="orderCode">
+    <th mat-header-cell class="header-table" *matHeaderCellDef>Order Code</th>
+    <td mat-cell *matCellDef="let element">{{ element.orderCode }}</td>
+  </ng-container>
+  <ng-container matColumnDef="customerName">
+    <th mat-header-cell class="header-table" *matHeaderCellDef>Customer Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.customerName }}</td>
+  </ng-container>
+  <ng-container matColumnDef="itemName">
+    <th mat-header-cell class="header-table" *matHeaderCellDef>Item Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.itemName }}</td>
+  </ng-container>
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell class="header-table" *matHeaderCellDef>Quantity</th>
+    <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+  </ng-container>
+  <ng-container matColumnDef="totalPrice">
+    <th mat-header-cell class="header-table" *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef="let element">{{ element.totalPrice }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th
+      mat-header-cell
+      class="header-table"
+      *matHeaderCellDef
+      style="text-align: center"
+    >
+      Action
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <mat-grid-list cols="1" rowHeight="50px" class="container-btn">
+        <mat-grid-tile
+          ><button
+            mat-raised-button
+            class="btn-custom"
+            (click)="openDialogDetail(element.orderId)"
+          >
+            Detail
+          </button></mat-grid-tile
+        >
+        <mat-grid-tile
+          ><button
+            mat-raised-button
+            class="btn-custom"
+            color="accent"
+            (click)="openDialogUpdate(element.orderId)"
+          >
+            Update
+          </button></mat-grid-tile
+        >
+        <mat-grid-tile
+          ><button
+            mat-raised-button
+            class="btn-custom"
+            color="warn"
+            (click)="handleDelete(element.orderId)"
+          >
+            Delete
+          </button></mat-grid-tile
+        >
+      </mat-grid-list>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator
+  [length]="length"
+  [pageSize]="pageSize.value"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  [pageIndex]="pageNumber.value"
+  aria-label="Select page"
+  (page)="handlePageEvent($event)"
+>
+</mat-paginator>
+</div>

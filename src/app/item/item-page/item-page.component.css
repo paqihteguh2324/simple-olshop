@@ -1,0 +1,42 @@
+
+.btn-custom{
+  width: 100px!important;
+  box-shadow: none!important;
+  background-color: #d5e299 !important;
+}
+
+.header-table{
+  border-bottom: 2px solid #000000;
+  border-top: 2px solid #000000;
+  }
+
+  th{
+    background-color: #e8ff65 !important;
+    color: #000000;
+    font-weight: 500;
+  }
+
+.mat-table
+{
+  background-color:transparent!important;
+}
+table {
+  width: 100%;
+  min-width: 550px;
+  border-collapse: collapse;
+  border-radius: 5em;
+  overflow: scroll;
+}
+table tr:last-child td /*To remove the last border*/
+{
+  border-bottom:0 solid
+}
+.container-customer{
+  background-color: #fff;
+  padding: 10px;
+}
+
+.container-btn{
+  padding-top: 2px;
+  padding-bottom: 2px;
+}

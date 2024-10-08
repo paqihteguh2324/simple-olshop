@@ -1,0 +1,104 @@
+<div class="container-customer">
+  <div style="display: flex; width: 100%; margin-bottom: 8px; margin-top: 8px;">
+    <div style="width: 80%; padding-left: 50px; font-size: 12px;">
+      <mat-form-field style="width: 95%; margin-bottom: 8px;  border-radius: 8px;" appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Input Customer Name "[formControl]="searchValue" (change)="searchCustomer()" >
+        <mat-icon matPrefix>search</mat-icon>
+      </mat-form-field>
+    </div>
+    <div style="width:20%; padding-right: 50px;">
+      <button mat-raised-button style="background-color: #c4c4c4; border-radius: 8px; height: 50px; " (click)="openDialogCreate()">
+        Add Customer
+      </button>
+    </div>
+  </div>
+
+  <mat-grid-list [cols]="gridCols || 4" rowHeight="400px" class="container-btn">
+    <mat-grid-tile *ngFor="let item of data">
+      <div
+        style="
+          padding: 8px;
+          height: 350px;
+          border: 1px solid black;
+          width: 200px;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          flex-direction: column;
+          border-radius: 8px;
+          box-shadow: 2px 1px 2px 1px #c4c4c4;
+        "
+      >
+        <img
+          src="{{ item.pic }}"
+          width="130"
+          height="130"
+          style="border-radius: 8px"
+        />
+        <div style="font-size: medium">{{ item.customerName }}</div>
+        <div style="font-size: small">{{ item.customerPhone }}</div>
+        <div
+          style="
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+          "
+        >
+          <button
+            class="btn-custom"
+            (click)="openDialogDetail(item.customerId)"
+          >
+            Detail
+          </button>
+          <button
+            class="btn-custom"
+            (click)="openDialogUpdate(item.customerId)"
+          >
+            Update</button
+          ><button
+            class="btn-custom"
+            (click)="deleteCustomer(item.customerId)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <!-- <table mat-table [dataSource]="data" class="mat-elevation-z8">
+
+
+  <ng-container matColumnDef="customerName">
+    <th mat-header-cell class="header-table" *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="customerPhone">
+    <th mat-header-cell class="header-table" *matHeaderCellDef> Phone </th>
+    <td mat-cell *matCellDef="let element"> {{element.customerPhone}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="pic">
+    <th mat-header-cell class="header-table" *matHeaderCellDef> PIC </th>
+    <td mat-cell *matCellDef="let element"> {{element.pic}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell class="header-table" *matHeaderCellDef style="text-align: center;"> Action </th>
+    <td mat-cell *matCellDef="let element">
+      <mat-grid-list cols="1" rowHeight="50px" class="container-btn">
+        <mat-grid-tile><button mat-raised-button class="btn-custom" (click)="openDialogDetail(element.customerId)" >Detail</button></mat-grid-tile>
+        <mat-grid-tile><button mat-raised-button class="btn-custom" color="accent" (click)="openDialogUpdate(element.customerId)">Update</button></mat-grid-tile>
+        <mat-grid-tile><button mat-raised-button class="btn-custom" color="warn" (click)="deleteCustomer(element.customerId)">Delete</button></mat-grid-tile>
+      </mat-grid-list>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> -->
+</div>

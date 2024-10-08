@@ -1,0 +1,43 @@
+<h1 matDialogTitle>Create Order</h1>
+<div style="display: flex; width: 100%; margin-bottom: 8px; margin-top: 8px; flex-direction: column;">
+
+<mat-dialog-content style="padding: 20px; height: auto;">
+
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 8px;" >
+    <mat-label>Customer</mat-label>
+    <input matInput placeholder="Select Customer" required [formControl]="customer"  (blur)="getErrorMessage()" [matAutocomplete]="customerAuto" #input type="text" >
+    <mat-autocomplete requireSelection #customerAuto="matAutocomplete"  [displayWith]="displayFnCustomer">
+    <mat-option *ngFor="let customer of filteredOptionsCustomer | async" [value]="customer" >
+        {{customer.customerName}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error>{{errorCustomer}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 8px;">
+    <mat-label>Item</mat-label>
+    <input matInput placeholder="Select Item" required [formControl]="item" (blur)="getErrorMessage()" [matAutocomplete]="itemAuto">
+    <mat-autocomplete requireSelection #itemAuto="matAutocomplete"  [displayWith]="displayFn">
+      <mat-option *ngFor="let items of filteredOptions | async" [value]="items" >
+        {{items.itemName}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error>{{errorItem}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 8px;" floatLabel="always">
+    <mat-label>Quantity</mat-label>
+    <input matInput type="number" placeholder="Input Quantity" required [formControl]="qty" (blur)="getErrorMessage()">
+    <mat-error>{{errorQty}}</mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+<div style="padding-left: 40px;">
+Total Harga : {{total.value}}
+</div>
+</div>
+<mat-dialog-actions>
+    <button mat-raised-button style="border-radius: 8px;" matDialogClose>Close</button>
+    <button mat-raised-button style="border-radius: 8px;" (click)="updateItem()" disabled="{{customer.invalid || item.invalid || qty.invalid }}">Save</button>
+
+</mat-dialog-actions>
+

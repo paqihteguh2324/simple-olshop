@@ -1,0 +1,26 @@
+<h1 matDialogTitle>Update Customer</h1>
+
+<mat-dialog-content style="padding: 20px;">
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 8px;" floatLabel="always" >
+    <mat-label>Item Name</mat-label>
+    <input matInput placeholder="Input Item Name" required [formControl]="name" (blur)="getErrorMessage()">
+    <mat-error>{{errorMessageName}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 8px;" floatLabel="always">
+    <mat-label>Item Price</mat-label>
+    <input matInput placeholder="Input Item Price" required [formControl]="price" (blur)="getErrorMessage()">
+    <mat-error>{{errorMessagePrice}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 8px;" floatLabel="always">
+    <mat-label>Stock</mat-label>
+    <input matInput placeholder="Input Item Stock" required [formControl]="stock" (blur)="getErrorMessage()">
+    <mat-error>{{errorMessageStock}}</mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button style="border-radius: 8px;" matDialogClose>Close</button>
+    <button mat-raised-button style="border-radius: 8px;" (click)="updateItem()" disabled="{{name.invalid || price.invalid || stock.invalid }}">Update</button>
+
+</mat-dialog-actions>

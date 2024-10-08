@@ -1,0 +1,26 @@
+<div class="container">
+<h1 matDialogTitle style="font-weight: bold;">Detail Item</h1>
+<mat-dialog-content>
+  <div style="display: flex; flex-direction: row;">
+    <div style="display: flex; flex-direction: column; font-weight:500;">
+      <p>item Code</p>
+      <p>item Name</p>
+      <p>Stock</p>
+      <p>Price</p>
+      <p>Last Restock </p>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <p> &nbsp;: {{item.itemCode}}</p>
+      <p> &nbsp;: {{item.itemName}}</p>
+      <p> &nbsp;: {{item.stock}}</p>
+      <p> &nbsp;: {{item.price}}</p>
+      <p> &nbsp;: {{item.lastReStock | date: 'd MMMM y'}}</p>
+    </div>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button matDialogClose>Tutup</button>
+</mat-dialog-actions>
+</div>

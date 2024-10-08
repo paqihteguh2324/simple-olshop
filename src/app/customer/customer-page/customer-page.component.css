@@ -35,9 +35,21 @@ table{
  */
 
  .btn-custom{
-  width: 100px!important;
-  box-shadow: none!important;
-  background-color: #c4c4cc !important;
+  width: 50px;
+  border-radius: 2px;
+  height: 20px;
+  font-size: 12px;
+  margin: 2px;
+  border: 0;
+  padding: 2px;
+  box-shadow: 1px 1px 1px 1px #c4c4c4;
+  cursor: pointer;
+}
+
+.btn-custom:hover{
+  background-color: aqua!important;
+  color: #fff;
+  cursor: pointer;
 }
 
 .header-table{
@@ -57,8 +69,10 @@ table{
 }
 table {
   width: 100%;
+  min-width: 550px;
   border-collapse: collapse;
   border-radius: 5em;
+  overflow: scroll;
 }
 table tr:last-child td /*To remove the last border*/
 {
@@ -73,3 +87,4 @@ table tr:last-child td /*To remove the last border*/
   padding-top: 2px;
   padding-bottom: 2px;
 }
+
